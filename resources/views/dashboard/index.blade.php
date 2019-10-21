@@ -62,7 +62,7 @@
                         <th> Tanggal </th>
                         <th> Barang </th>
                         <th> Harga </th>
-                    </tr>
+                    </tr>git
                   </thead>
                     <tbody>
                       <?php
