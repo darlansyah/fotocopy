@@ -1,4 +1,8 @@
+
+
 <?php
+use Illuminate\Support\Facades\DB;
+
 function rupiah($rupiah){
   return "Rp. ".$rupiah;
 }
@@ -64,8 +68,18 @@ function data_bulan_ini(){
                         WHERE YEAR(tanggal) = $tahun AND
                          month(tanggal) = $bulan");
 
-return $data;
+  return $data;
 }
+  function data_tgl_ini(){
+    $tahun = date('Y');
+    $bulan = date('m');
+    $tgl = date('d');
+    $jumlah = DB::select("SELECT SUM(harga) as harga FROM `transaksi`
+                          WHERE YEAR(tanggal) = $tahun AND
+                          		month(tanggal) = $bulan AND
+                                day(tanggal) = $tgl");
+    return titik_rupiah($jumlah[0]->harga);
+  }
 
 
  ?>

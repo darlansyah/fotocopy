@@ -1,6 +1,4 @@
 <?php
-// var_dump(data_bulanan());
-// die;
 
  ?>
 
@@ -113,8 +111,14 @@ Transaksi
                 </tr>
                 @endforeach
               </tbody>
-
             </table>
+            @if($tanggal == date('Y-m-d'))
+              Pendapatan Hari ini : {{data_tgl_ini()}} <br/>
+            @endif
+            Halaman : {{ $transaksi->currentPage() }} <br/>
+            Jumlah Data : {{ $transaksi->total() }} <br/>
+            Data Per Halaman : {{ $transaksi->perPage() }} <br/>
+            {{ $transaksi->links() }}
           </div>
         </div>
       </div>
